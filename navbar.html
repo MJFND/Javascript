@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html manifest="demo.appcache">
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="jquery.js"></script>
+<div id="nav">
+    <div id="nav_wrapper">
+        <ul>
+            <li><a href="#">item #1</a>
+            </li>
+
+            <li> <a href="#">item #2</a>
+            </li>
+            <li> <a href="#" id="h">dropdown #1</a>
+
+                <ul id="ul1">
+                    <li><a href="#" class="a">dropdown #1 item #1</a>
+                    </li>
+                    <li><a href="#" class="a">dropdown #1 item #2</a>
+                    </li>
+                    <li><a href="#" class="a">dropdown #1 item #3</a>
+                    </li>
+                </ul>
+            </li>
+            <li> <a href="#" id="h1">dropdown #2</a>
+
+                <ul id="ul2">
+                    <li><a href="#" class="b">dropdown #2 item #1</a>
+                    </li>
+                    <li><a href="#" class="b">dropdown #2 item #2</a>
+                    </li>
+                    <li><a href="#" class="b">dropdown #2 item #3</a>
+                    </li>
+                </ul>
+            </li>
+            <li> <a href="#">item #3</a>
+            </li>
+        </ul>
+    </div>
+    <!-- Nav wrapper end -->
+</div>
+<!-- Nav end -->
+
+<p>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+footer</p>
+
+<script>
+$(function(){ 
+
+$(document).scroll(function(){
+if($(document).scrollTop() + $(document).height() == $(document).height()) {
+   $("#nav").css({ opacity: 0.8 });
+   }
+else
+$("#nav").css({ opacity: 0.5 });
+});
+
+
+
+$(document).mouseover(function(event){
+
+		 if($(event.target).is('#h,.a')) 
+		 {
+		 $("#ul2").slideUp("slow");
+		 $("#ul1").slideDown("slow");
+		 }
+
+
+		else  if($(event.target).is("#h1,.b")) 
+		 {
+		$("#ul1").slideUp("slow");
+		$("#ul2").slideDown("slow");
+
+		}
+
+
+		else
+		{
+		 $("#nav ul ul").slideUp("slow");
+		}
+});
+
+
+
+
+
+});
+</script>
+
+<style>
+body {
+background-color:white;
+    padding: 0;
+    margin: 0;
+    font-size: 1.6vw;
+    font-family: Arial;
+
+
+}
+#nav {
+    background-color: #3399FF;
+	position: fixed;
+	top:0;
+	opacity: 0.8 ;
+	 width: 100%;
+	 
+	
+}
+#nav_wrapper {
+      left: 10%;
+    text-align: center;
+	
+
+}
+#nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    min-width: 20%;
+	
+	
+}
+#nav ul li {
+    display: inline-block;
+	 
+	-webkit-transition: all ease 0.8s;
+	-moz-transition: all ease 0.8s;
+	transition: all ease 0.8s;
+	  
+	}
+
+#nav ul li:hover {
+      box-shadow: inset 0 100px 0 0 #606060;
+	  
+}
+#nav ul li a {
+    color:white;
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+}
+
+
+#nav ul ul {
+    display: none;
+    position: absolute;
+    background-color: #3399FF;
+    border: 1px solid #303030;
+    border-top: 0;
+    margin-left: -5px;
+}
+
+#nav ul ul li {
+    display: block;
+	
+}
+
+#nav ul ul li a:hover {
+    color: white;
+}
+
+</style>
+
+
+<html>

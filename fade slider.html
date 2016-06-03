@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html manifest="demo.appcache">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<div id="photos">  
+  <img src="1.jpg" alt="in the outfield" />  
+  <img src="2.jpg" alt="ballpark scoreboard" />  
+  <img src="3.jpg" alt="batting helmets" />  
+ 
+</div>  
+ 
+
+<script>
+$(document).ready(function() {  
+var interval;
+ startslider();
+    //hide all the images except the first one     
+    $("#photos img:gt(0)").hide();  
+  function  startslider(){
+  
+    interval= setInterval(function() {  
+        //get the current image - it is the visible one  
+        var current = $('#photos img:visible');  
+  
+        //get immediate next image after the current if exists, otherwise find the first one  
+        var next = current.next().length ? current.next() : $('#photos img:eq(0)');  
+        //hide the current image  
+        current.fadeOut(1000);  
+        //show the next one  
+        next.fadeIn(1000);  
+    }, 3000);  
+	
+	}			
+	
+$("#photos").mouseover(function(){
+   clearInterval(interval);
+});
+
+$("#photos").mouseleave(function(){
+   startslider();
+});
+
+
+});
+	
+</script>
+
+<style>
+ 
+#photos {   
+   position: relative;   
+    padding: 10px;   
+   width: 80%;   
+   height: 50%;   
+}  
+  
+ 
+
+#photos img {   
+   position: absolute;   
+   top: 10px;   
+   left: 10px;  
+   width: 80%;   
+      
+}
+
+
+
+
+</style>
+
+</body>
+</html> 

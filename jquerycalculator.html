@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Include meta tag to ensure proper rendering and touch zooming -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Include jQuery Mobile stylesheets -->
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <!-- Include the jQuery library -->
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <!-- Include the jQuery Mobile library -->
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+</head>
+
+
+<body>
+
+<div data-role="page" id="pageone">
+  <div data-role="header">
+    <h1>START</h1>
+  </div>
+
+  <div data-role="main" class="ui-content" >
+  <h1>calculator</h1>
+
+   <form method="post" action="#" style="width:50%" >
+  <label for="fname">Number1:</label>
+  <input type="number"  id="no1" placeholder="enter number1..." data-clear-btn="true">
+  <label for="fname">Number2:</label>
+  <input type="number"  id="no2" placeholder="enter number1..." data-clear-btn="true">
+</form>
+
+
+
+	<a href="#myPopup" data-rel="popup" id="add" data-position-to="window" class="ui-btn ui-corner-all ui-btn-inline ui-icon-arrow-r ui-btn-icon-left" style="width:18%">Add</a>
+	<a href="#myPopup1" data-rel="popup"  id="sub" data-position-to="window" class="ui-btn ui-corner-all ui-btn-inline ui-icon-arrow-r ui-btn-icon-left"style="width:18%">Sub</a>
+	
+  </div>  
+  
+
+
+Addition:<p id="p1"></p>
+
+
+
+<div data-role="popup" id="myPopup1" class="ui-content" data-transition="fade" data-overlay-theme="b">
+<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+Subtraction:<p id="p2"></p>
+
+</div>
+
+<script>
+ 
+
+
+ 
+$("#add").click(function(){
+ var x=$("#no1").val();
+ var y=$("#no2").val();
+
+	$("#p1").html(Number(x)+Number(y));
+});
+
+
+	$("#sub").click(function(){
+	 var x=$("#no1").val();
+	var y=$("#no2").val();
+ 
+	$("#p2").html(x-y);
+	
+});
+
+
+</script>
+
+  <div data-role="footer">
+    <h1>END</h1>
+  </div>
+</div> 
+
+</body>
+</html>
