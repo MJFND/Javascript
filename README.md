@@ -1,2 +1,2 @@
 # javascript
-Simple cool slider and buttons.
+Simple cool slider, navbar, popups and buttons.
