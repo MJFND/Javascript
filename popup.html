@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html manifest="demo.appcache">
+<head>
+<script src="jquery.js"></script>
+
+</head>
+<a href="#popup" id="s">Sign In</a>
+
+<body>
+
+<div id="popup">
+
+<a href="#" id="close"><img src="1.png" id="close" title="close"/></a>
+<h1>Sign IN </h1>
+<form id="contactform1" >
+ <br>
+Username: <input id="username" type="text"><br>
+Password: <input id="password" type="password"><br><br>
+  <button type="button" class="button1">Login</button><br>
+
+
+</form>
+</div>
+
+<script>
+
+$(function(){ 
+
+
+ 
+
+ var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+ $("#username, #password").css("border","0.1vw solid white");
+$("#username").focusout(function(){ 
+
+ if($("#username").val()=="" || !pattern.test($("#username").val()))
+
+{
+ $("#username").css("border","0.1vw solid red");
+}
+   else
+{
+ $("#username").css("border","0.1vw solid white");
+}
+
+ 
+});
+
+$("#password").focusout(function(){ 
+
+ if($("#password").val()=="")
+
+{
+ $("#password").css("border","0.1vw solid red");
+}
+   else
+{
+ $(password).css("border","0.1vw solid white");
+}
+
+ 
+});
+
+
+
+ $('#close').click(function(){
+ $("#popup").hide();
+});
+
+$(document).keyup(function(e) {
+ if (e.keyCode === 27)
+ {$("#popup").hide();
+  }
+});
+
+$(document).click(function(e){
+
+ if($(event.target).is('#s')) 
+ {
+ $("#popup").toggle();
+}
+
+ else if($(event.target).is('#popup')) 
+ {
+ $("#popup").show();
+}
+
+
+ else if($(event.target).is('#username,#password,#contactform')) 
+ {
+ $("#popup").show();
+}
+ else if($(event.target).is('.button1')) 
+ {
+ $("#popup").show();
+}
+
+else 
+{
+$("#popup").hide();
+}
+
+})
+
+
+
+});
+
+	
+</script>
+
+<style>
+
+ #contactform1{
+width: 100%;
+height: 20%;
+font-size: 1.5vw; /* Primary font size of form. Contained elements' font size are all relative to this setting */
+
+}
+
+h1{
+font:  2vw Verdana;
+}
+
+#contactform1 input{
+
+width: 98%;
+height: 50%;
+border-radius: 0.3vw;
+padding: 0.4166666666666667em; /* 10px, or 24px x 0.4166666666666667 */
+box-shadow: 0.1vw 0.2vw 0.5vw gray inset;
+
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+font:  1vw Verdana;
+}
+
+.button1{
+width:30%;
+height:50%;
+color:white;
+font:  1vw Verdana;
+background-color: black;
+cursor: pointer;
+border:0.1vw solid white;
+}
+
+.button1:hover{
+width:30%;
+height:50%;
+color:white;
+font:  1vw Verdana;
+background-color: gray;
+cursor: pointer;
+border:0.1vw solid white;
+}
+
+
+
+#popup{
+background-color: #3399FF;
+opacity: 0.8;
+width: 20%;
+height: 40%;
+ margin:auto;
+    position:absolute;
+    top: 25%;
+    left: 40%;
+	box-shadow: 1px 2px 5px gray;
+}
+
+#close{
+float: right;
+   top: 0px;
+   width:3vw;
+
+}
+
+
+</style>
+
+</body>
+</html> 
